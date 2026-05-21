@@ -53,6 +53,7 @@ public class TutorialMod
     {
     if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
         event.accept(ModItems.ALEXANDRITE);
+        event.accept(ModItems.RAW_ALEXANDRITE);
     }
     }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
