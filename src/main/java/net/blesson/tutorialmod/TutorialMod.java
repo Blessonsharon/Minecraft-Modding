@@ -1,6 +1,7 @@
 package net.blesson.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import net.blesson.tutorialmod.block.ModBlocks;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,7 +36,7 @@ public class TutorialMod
         MinecraftForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
-
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 
@@ -53,8 +54,13 @@ public class TutorialMod
     {
     if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
         event.accept(ModItems.ALEXANDRITE);
-        event.accept(ModItems.RAW_ALEXANDRITE);
     }
+    if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+        event.accept(ModBlocks.ALEXANDRITE_BLOCK);
+        event.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK);
+    }
+
+
     }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
